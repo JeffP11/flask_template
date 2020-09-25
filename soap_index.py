@@ -1,9 +1,7 @@
 from flask import Flask
-from zeep import Client
-from zeep import helpers
-from collections import OrderedDict
+from zeep import Client, helpers
 from zeep.transports import Transport
-from calculator_retry import CalculatorRetry
+from soap_retry import CalculatorRetry
 
 app = Flask(__name__)
 
@@ -24,8 +22,8 @@ class ConnectWSDL():
 
 @app.route('/')
 def index():
-    sv                  = ConnectWSDL()
-    resultado           = sv.suma(data={'valor1': 50, 'valor2': 100})
+    sv                      = ConnectWSDL()
+    resultado               = sv.suma(data={'valor1': 50, 'valor2': 100})
     return str(resultado)
 
 if __name__ == '__main__':

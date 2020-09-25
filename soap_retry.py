@@ -3,7 +3,7 @@ import requests
 
 class CalculatorRetry():
     def __init__(self):
-        self.soap_sv    = "http://www.dneonline.com/calculator.asmx?WSDL"
+        self.soap_sv        = "http://www.dneonline.com/calculator.asmx?WSDL"
 
     def requests_retry_session(
         self,
