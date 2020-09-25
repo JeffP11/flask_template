@@ -6,8 +6,8 @@ app = Flask(__name__)
 def index():
     return "Ok"
 
-import servicio
-app.register_blueprint(servicio.bp)
+import api_service
+app.register_blueprint(api_service.bp)
  
 if __name__ == '__main__':
     app.run()

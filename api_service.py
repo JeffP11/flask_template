@@ -1,23 +1,25 @@
 import functools
 
-from flask import (
-    Blueprint, flash, g, redirect, render_template, request, session, url_for, jsonify
-)
+from flask import Blueprint, request, jsonify
 
 bp = Blueprint('bp_test', __name__, url_prefix='/bp_test')
 
-@bp.route('/post/', methods=['GET', 'POST'])
+@bp.route('/test/', methods=['GET', 'POST'])
 def testing():
+
+    data = request.args
+
     data_server = {
-        'server': 'servidor',
-        'database': 'database'
+        'server': data.get('server'),
+        'database': data.get('database')
     }
     
     data_date = {
-        'date': 'date'
+        'date': data.get('date')
     }
 
     if request.method == 'POST':
         return jsonify(data_date)
+        
     elif request.method == 'GET':
         return jsonify(data_server)
